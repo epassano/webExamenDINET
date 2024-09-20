@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table style="width:80%; margin:auto">
+    <tr>
+        <td>Fecha Inicio</td>
+        <td><input  type="text" id="txtFechaInicio" /></td>
+    </tr>
+    <tr>
+        <td>Fecha Fin</td>
+        <td><input type="text" id="txtFechaFin" /></td>
+    </tr>
+    <tr>
+        <td>Tipo Movimiento </td>
+        <td><input type="text" id="txtTipoMovimiento" /></td>
+    </tr>
+    <tr>
+        <td>Nro Documento </td>
+        <td><input type="text" id="txtNroDocumento" /></td>
+    </tr>
+</table>
+
+
+<input type="button" value="Buscar" id="btnBuscar" onclick="listarMovimientos()"/>
+
+<div id="tabla">
+
+
+</div>
+
+<script>
+    var baseUrl = @Html.Raw(Json.Encode(Url.Content("~")));
+    var accionListarMovimientos = '@Url.Action("listarMovimientos", "Inventario")';
+  
+</script>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/Movimiento.js"></script>
+<script src="~/scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
