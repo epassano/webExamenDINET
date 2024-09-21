@@ -22,10 +22,10 @@ namespace LibDato
                 cn.Open();
                 SqlCommand cmd = new SqlCommand("USP_LISTAR_MOVIMIENTO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@fechaInicio",fechaInicio);
-                cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
-                cmd.Parameters.AddWithValue("@tipoMovimiento", tipoMovimiento);
-                cmd.Parameters.AddWithValue("@nroDocumento", nroDocumento);
+                cmd.Parameters.AddWithValue("@fechaInicio", string.IsNullOrEmpty(fechaInicio) ? (object)System.DBNull.Value: fechaInicio);
+                cmd.Parameters.AddWithValue("@fechaFin", string.IsNullOrEmpty(fechaFin) ? (object)System.DBNull.Value : fechaFin);
+                cmd.Parameters.AddWithValue("@tipoMovimiento", string.IsNullOrEmpty(tipoMovimiento) ? (object)System.DBNull.Value : tipoMovimiento);
+                cmd.Parameters.AddWithValue("@nroDocumento", string.IsNullOrEmpty(nroDocumento) ? (object)System.DBNull.Value : nroDocumento);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
