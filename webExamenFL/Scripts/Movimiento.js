@@ -15,23 +15,17 @@
                 proccesData: false,
                 contentType: 'application/json',
                 success: function (data) {
+                    alert(data)
                     if (data != 0) {
                         crearListado(["COD_CIA", "COMPANIA_VENTA_3", "ALMACEN_VENTA", "TIPO_MOVIMIENTO", "TIPO_DOCUMENTO","NRO_DOCUMENTO","FECHA_TRANSACCION"], data);
                         alert("se ejecuto correctamente");
                     } else {
+                        $('#tablas').dataTable().fnClearTable();
                         alert("ocurrio error")
                     }
                 }
             })
     
-}
-
-function listar() {
-
-    //$.get(baseUrl+"/Curso/listarCurso", function (data) {
-    $.get(accionListarMovimientos, function (data) {
-        crearListado(["COD_CIA", "COMPANIA_VENTA_3", "ALMACEN_VENTA", "TIPO_MOVIMIENTO"], data);
-    });
 }
 function crearListado(arrayColumnas, data) {
     var contenido = "";
